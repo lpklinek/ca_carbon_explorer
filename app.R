@@ -1703,10 +1703,28 @@ server <- function(input, output, session) {
         coords <- matrix(unlist(geom$geometry$coordinates), ncol = 2)
         vals <- terra::extract(rast_obj, coords)
         
-      } else if (identical(geom_type, "Polygon")) {
+        # drawn polygon
+      }  else if (is.list(geom) && 
+                   !is.null(geom$geometry$type) &&
+                   identical(geom$geometry$type, "Polygon")) {
         
-        poly_sf <- sf::st_as_sf(geom)
+        coords <- geom$geometry$coordinates[[1]]
+        
+        coords_mat <- matrix(
+          as.numeric(unlist(coords)),
+          ncol = 2,
+          byrow = TRUE
+        )
+        
+        poly_sf <- sf::st_sf(
+          geometry = sf::st_sfc(
+            sf::st_polygon(list(coords_mat)),
+            crs = 4326
+          )
+        )
+        
         terra_poly <- terra::vect(poly_sf)
+        
         vals <- terra::extract(rast_obj, terra_poly, fun = mean, na.rm = TRUE)
       }
     }
