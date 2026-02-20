@@ -616,7 +616,7 @@ ui <- navbarPage(
   navbarMenu("About this tool", 
              tabPanel("Overview", div(class = "info-tab",
                                       h2("Overview"),
-                                      p("Welcome to the California CARDAMOM Explorer! This is an open-source tool for quantifying and visualizing the forest carbon cycle in California, and understanding the resilience and vulnerability of forested ecosystems. 
+                                      p("Welcome to the California Carbon Explorer! This is an open-source tool for quantifying and visualizing the forest carbon cycle in California, and understanding the resilience and vulnerability of forested ecosystems. 
                                       We hope that scientists and land managers, from government to non-profit, private, or tribal, can use this platform to monitor changes over time and ultimately inform adaptive management strategies to increase ecosystem health and carbon storage."), 
 	                                    p("This platform was coded and designed by Lily Klinek. The development of this tool was funded by the CAL FIRE Forest Health Research Program grant (#8GG20808) awarded to PI Troy Magney. The platform was built using R Shiny, and used data from a CARDAMOM model run completed by Jessie Au, Luke Smallman, and David Milodowski. 
 	                                    All source code for the current beta version of the platform can be found on the following github page: ")
