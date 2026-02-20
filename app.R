@@ -1630,6 +1630,49 @@ server <- function(input, output, session) {
   #   )
   # })
   
+  # csv_preview_data <- eventReactive(input$generate_csv_preview, {
+  #   
+  #   req(selected_geom())
+  #   req(input$csv_variable)
+  #   
+  #   geom <- selected_geom()
+  #   rast_obj <- rast_list[[input$csv_variable]]
+  #   
+  #   validate(
+  #     need(!is.null(rast_obj), "No raster found for selected variable.")
+  #   )
+  #   
+  #   # If geometry is sf (uploaded polygon)
+  #   if (inherits(geom, "sf")) {
+  #     
+  #     terra_poly <- terra::vect(geom)
+  #     vals <- terra::extract(rast_obj, terra_poly, fun = mean, na.rm = TRUE)
+  #     
+  #   } else if (geom$geometry$type == "Point") {
+  #     
+  #     coords <- matrix(unlist(geom$geometry$coordinates), ncol = 2)
+  #     vals <- terra::extract(rast_obj, coords)
+  #     
+  #   } else if (geom$geometry$type == "Polygon") {
+  #     
+  #     poly_sf <- sf::st_as_sf(geom)
+  #     terra_poly <- terra::vect(poly_sf)
+  #     vals <- terra::extract(rast_obj, terra_poly, fun = mean, na.rm = TRUE)
+  #   }
+  #   
+  #   validate(
+  #     need(!is.null(vals) && ncol(vals) > 1, "No values extracted.")
+  #   )
+  #   
+  #   vals <- vals[, -1, drop = FALSE]
+  #   
+  #   data.frame(
+  #     Date = names(rast_obj),
+  #     Value = as.numeric(vals[1, ])
+  #   )
+  # })
+  # 
+  
   csv_preview_data <- eventReactive(input$generate_csv_preview, {
     
     req(selected_geom())
@@ -1642,33 +1685,48 @@ server <- function(input, output, session) {
       need(!is.null(rast_obj), "No raster found for selected variable.")
     )
     
-    # If geometry is sf (uploaded polygon)
+    vals <- NULL
+    
+    # ---- CASE 1: Uploaded ROI (sf object) ----
     if (inherits(geom, "sf")) {
       
       terra_poly <- terra::vect(geom)
       vals <- terra::extract(rast_obj, terra_poly, fun = mean, na.rm = TRUE)
       
-    } else if (geom$geometry$type == "Point") {
+      # ---- CASE 2: GeoJSON-like list ----
+    } else if (is.list(geom) && !is.null(geom$geometry)) {
       
-      coords <- matrix(unlist(geom$geometry$coordinates), ncol = 2)
-      vals <- terra::extract(rast_obj, coords)
+      geom_type <- geom$geometry$type
       
-    } else if (geom$geometry$type == "Polygon") {
-      
-      poly_sf <- sf::st_as_sf(geom)
-      terra_poly <- terra::vect(poly_sf)
-      vals <- terra::extract(rast_obj, terra_poly, fun = mean, na.rm = TRUE)
+      if (identical(geom_type, "Point")) {
+        
+        coords <- matrix(unlist(geom$geometry$coordinates), ncol = 2)
+        vals <- terra::extract(rast_obj, coords)
+        
+      } else if (identical(geom_type, "Polygon")) {
+        
+        poly_sf <- sf::st_as_sf(geom)
+        terra_poly <- terra::vect(poly_sf)
+        vals <- terra::extract(rast_obj, terra_poly, fun = mean, na.rm = TRUE)
+      }
     }
     
     validate(
-      need(!is.null(vals) && ncol(vals) > 1, "No values extracted.")
+      need(!is.null(vals) && ncol(vals) > 1,
+           "No values extracted for selected geometry.")
     )
-    
     vals <- vals[, -1, drop = FALSE]
     
+    ts_vals <- as.numeric(vals[1, ])
+    
+    layer_names <- names(rast_obj)
+    
+    ts_vals_full <- rep(NA_real_, length(layer_names))
+    ts_vals_full[seq_along(ts_vals)] <- ts_vals
+    
     data.frame(
-      Date = names(rast_obj),
-      Value = as.numeric(vals[1, ])
+      Date  = layer_names,
+      Value = ts_vals_full
     )
   })
   
