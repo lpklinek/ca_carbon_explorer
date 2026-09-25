@@ -1177,11 +1177,18 @@ server <- function(input, output, session) {
       r_slices[[vr_name]] <- lapply(1:nlyr(r_stack), function(i) terra::subset(r_stack, i))
     }
   })
-  
+
+# define CARTO API key (as of 09/25/26)
+carto_key <- "cb1_3ynk_1_f5c31936f4ca2929a5f6da5f"
+		
   # 7. Render map -----
   output$map <- renderLeaflet({
     leaflet(options = leafletOptions(zoomControl = FALSE)) %>%
-      addProviderTiles(providers$CartoDB.Positron) %>%
+      #addProviderTiles(providers$CartoDB.Positron) %>%
+	  addTiles(
+    urlTemplate = paste0("https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png?key=", carto_key),
+    attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
+  ) %>%
       fitBounds(lng1 = -128.4, lat1 = 35.5, lng2 = -115.1, lat2 = 41.5) %>%
       htmlwidgets::onRender("
         function(el, x) {
