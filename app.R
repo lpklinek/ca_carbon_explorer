@@ -1439,7 +1439,10 @@ carto_key <- "cb1_3ynk_1_f5c31936f4ca2929a5f6da5f"
     
     bbox_expanded <- projected_ext + c(-r, -r, -60000, r)
     
-    basemap <- basemap_terra(bbox_expanded, map_service="carto", map_type="voyager")
+    #basemap <- basemap_terra(bbox_expanded, map_service="carto", map_type="voyager")
+
+	  # new version with carto key, 10.15.26
+	basemap <- basemap_terra(bbox_expanded, map_service=paste0("https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png?key=", carto_key))
     # separate spec for fire variables
     group <- var_groups[[vr]]
     if (group == "Fire") {
