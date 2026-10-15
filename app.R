@@ -62,7 +62,11 @@ time_labels <- format(time_seq, "%Y-%m")
 
 addResourcePath("images", "www")
 
-
+#testing basemaps version
+message("basemaps version: ", packageVersion("basemaps"))
+message("add_maptypes available: ",
+        exists("add_maptypes", where = asNamespace("basemaps"),
+               inherits = FALSE))
 
 # carto API key update for basemap
 # define CARTO API key (as of 09/25/26)
