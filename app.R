@@ -68,19 +68,7 @@ addResourcePath("images", "www")
 # define CARTO API key (as of 09/25/26)
 carto_key <- "cb1_3ynk_1_f5c31936f4ca2929a5f6da5f"
 
-if (!nzchar(carto_key)) {
-  stop("CARTO_KEY environment variable is not set.")
-}
 
-# Register custom basemap only if it isn't already registered
-registered_maps <- get_maptypes(as_df = TRUE, url_cols = TRUE)
-
-has_custom_voyager <- any(
-  registered_maps$map_service == "carto_voyager_custom" &
-    registered_maps$map_type == "voyager"
-)
-
-if (!has_custom_voyager) {
   add_maptypes(
     map_service     = "carto_voyager_custom",
     map_type        = "voyager",
@@ -89,8 +77,6 @@ if (!has_custom_voyager) {
     url_file_format = ".png",
     url_map_token   = "?key="
   )
-}
-
 
 
 
