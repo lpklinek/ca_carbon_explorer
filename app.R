@@ -62,6 +62,39 @@ time_labels <- format(time_seq, "%Y-%m")
 
 addResourcePath("images", "www")
 
+
+
+# carto API key update for basemap
+# define CARTO API key (as of 09/25/26)
+carto_key <- "cb1_3ynk_1_f5c31936f4ca2929a5f6da5f"
+
+if (!nzchar(carto_key)) {
+  stop("CARTO_KEY environment variable is not set.")
+}
+
+# Register custom basemap only if it isn't already registered
+registered_maps <- get_maptypes(as_df = TRUE, url_cols = TRUE)
+
+has_custom_voyager <- any(
+  registered_maps$map_service == "carto_voyager_custom" &
+    registered_maps$map_type == "voyager"
+)
+
+if (!has_custom_voyager) {
+  add_maptypes(
+    map_service     = "carto_voyager_custom",
+    map_type        = "voyager",
+    url_endpoint    = "https://basemaps.cartocdn.com/rastertiles/voyager/",
+    url_xy          = "xy",
+    url_file_format = ".png",
+    url_map_token   = "?key="
+  )
+}
+
+
+
+
+
 # v02.19.26, beta ----
 # UI -----
 ui <- navbarPage(
@@ -1178,8 +1211,6 @@ server <- function(input, output, session) {
     }
   })
 
-# define CARTO API key (as of 09/25/26)
-carto_key <- "cb1_3ynk_1_f5c31936f4ca2929a5f6da5f"
 		
   # 7. Render map -----
   output$map <- renderLeaflet({
@@ -1442,19 +1473,12 @@ carto_key <- "cb1_3ynk_1_f5c31936f4ca2929a5f6da5f"
     #basemap <- basemap_terra(bbox_expanded, map_service="carto", map_type="voyager")
 
 	  # new version with carto key, 10.15.26
-    add_maptypes(
-      map_service     = "carto_voyager_custom",
-      map_type        = "voyager",
-      url_endpoint    = "https://basemaps.cartocdn.com/rastertiles/voyager/",
-      url_xy          = "xy",
-      url_file_format = ".png",
-      url_map_token   = "?key="
+    basemap <- basemap_terra(
+      ext         = bbox_expanded,
+      map_service = "carto_voyager_custom",
+      map_type    = "voyager",
+      map_token   = carto_key
     )
- 
-	basemap <- basemap_terra(ext=bbox_expanded, 
-	                         map_service = "carto_voyager_custom",
-	                         map_type    = "voyager",
-	                         map_token   = carto_key)
     # separate spec for fire variables
     group <- var_groups[[vr]]
     if (group == "Fire") {
