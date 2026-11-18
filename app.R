@@ -56,6 +56,23 @@ source('R/get_palette_for_var.R')
 time_seq <- seq(as.Date("2014-01-01"), as.Date("2022-12-31"), by = "month")
 time_labels <- format(time_seq, "%Y-%m")
 
+align_ts <- function(ts_vals, r_stack) {
+  ts_vals <- as.numeric(ts_vals)
+  layer_dates <- tryCatch(as.Date(paste0(names(r_stack), "-01")),
+                          error = function(e) rep(as.Date(NA), length(ts_vals)))
+  idx <- match(layer_dates, time_seq)
+  
+  out <- rep(NA_real_, length(time_seq))
+  if (anyNA(idx) || length(idx) != length(ts_vals)) {
+    # names weren't parseable: fall back to position-based pad/truncate
+    n <- min(length(ts_vals), length(time_seq))
+    out[seq_len(n)] <- ts_vals[seq_len(n)]
+  } else {
+    out[idx] <- ts_vals
+  }
+  out
+}
+
 # Helper infix for default values
 `%||%` <- function(a, b) if (!is.null(a)) a else b
 
@@ -941,14 +958,9 @@ server <- function(input, output, session) {
     vr <- varname()
     r_stack <- rast_list[[vr]]
     vals <- terra::extract(r_stack, matrix(c(lng, lat), ncol = 2))
-    ts_vals <- unlist(vals[1, -1], use.names = FALSE)
-    ts_vals <- ts_vals[1:length(time_seq)]
-    if (length(ts_vals) < length(time_seq)) {
-      ts_vals <- c(ts_vals, rep(NA, length(time_seq) - length(ts_vals)))
-    } else if (length(ts_vals) > length(time_seq)) {
-      ts_vals <- ts_vals[1:length(time_seq)]
-    }
-
+    vals <- terra::extract(r_stack, matrix(c(lng, lat), ncol = 2))
+    ts_vals <- align_ts(unlist(vals[1, -1], use.names = FALSE), r_stack)
+    
     df <- data.frame(Date = time_seq, Value = ts_vals)
     
     output$ts_plot <- renderPlotly({
@@ -990,14 +1002,8 @@ server <- function(input, output, session) {
     vr <- varname()
     r_stack <- rast_list[[vr]]
     vals <- terra::extract(r_stack, poly_vect)
-    ts_means <- colMeans(vals[, -1], na.rm = TRUE)
-    ts_means <- ts_means[1:length(time_seq)]
+    ts_means <- align_ts(colMeans(vals[, -1], na.rm = TRUE), r_stack)
     
-    if (length(ts_means) < length(time_seq)) {
-      ts_means <- c(ts_means, rep(NA, length(time_seq) - length(ts_means)))
-    } else if (length(ts_means) > length(time_seq)) {
-      ts_means <- ts_means[1:length(time_seq)]
-    }
     df <- data.frame(Date = time_seq, Value = ts_means)
     
     output$ts_plot <- renderPlotly({
@@ -1026,13 +1032,7 @@ server <- function(input, output, session) {
     poly_vect <- roi_data()
     
     vals <- terra::extract(r_stack, poly_vect, fun = mean, na.rm = TRUE)
-    ts_means <- as.numeric(vals[1, -1])
-    
-    ts_means <- ts_means[1:length(time_seq)]
-    
-    if (length(ts_means) < length(time_seq)) {
-      ts_means <- c(ts_means, rep(NA, length(time_seq) - length(ts_means)))
-    }
+    ts_means <- align_ts(vals[1, -1], r_stack)
     
     df <- data.frame(Date = time_seq, Value = ts_means)
     
@@ -1125,7 +1125,7 @@ server <- function(input, output, session) {
       
       terra_poly <- terra::vect(geom)
       vals <- terra::extract(r_stack, terra_poly, fun = mean, na.rm = TRUE)
-      ts_vals <- as.numeric(vals[1, -1])
+      ts_vals <- align_ts(vals[1, -1], r_stack)
       
       # 
       # CASE 2: Drawn or clicked GeoJSON
@@ -1136,24 +1136,22 @@ server <- function(input, output, session) {
         
         coords <- matrix(unlist(geom$geometry$coordinates), ncol = 2)
         vals <- terra::extract(r_stack, coords)
-        ts_vals <- as.numeric(vals[1, -1])
+        ts_vals <- align_ts(vals[1, -1], r_stack)
         
       } else if (geom$geometry$type == "Polygon") {
         
         poly_sf <- sf::st_as_sf(geom)
         terra_poly <- terra::vect(poly_sf)
         vals <- terra::extract(r_stack, terra_poly, fun = mean, na.rm = TRUE)
-        ts_vals <- as.numeric(vals[1, -1])
+        ts_vals <- align_ts(vals[1, -1], r_stack)
       }
       
     } else {
       return(NULL)
     }
     
-    df <- data.frame(
-      Date = time_seq,
-      Value = ts_vals
-    )
+    length(ts_vals) <- length(time_seq)   # pads with NA or truncates
+    df <- data.frame(Date = time_seq, Value = ts_vals)
     
     output$ts_plot <- renderPlotly({
       ggplotly(
@@ -1191,15 +1189,15 @@ server <- function(input, output, session) {
     }
   })
   
-
-  # 6. Pre-caching raster slices -----
-  r_slices <- reactiveValues()
-  observe({
-    for (vr_name in names(rast_list)) {
-      r_stack <- rast_list[[vr_name]]
-      r_slices[[vr_name]] <- lapply(1:nlyr(r_stack), function(i) terra::subset(r_stack, i))
-    }
-  })
+  # 
+  # # 6. Pre-caching raster slices -----
+  # r_slices <- reactiveValues()
+  # observe({
+  #   for (vr_name in names(rast_list)) {
+  #     r_stack <- rast_list[[vr_name]]
+  #     r_slices[[vr_name]] <- lapply(1:nlyr(r_stack), function(i) terra::subset(r_stack, i))
+  #   }
+  # })
 
 		
   # 7. Render map -----
@@ -1297,8 +1295,17 @@ server <- function(input, output, session) {
     session$sendCustomMessage("showSpinner", TRUE)  # show spinner immediately
     
     vr <- varname()
-    selected_idx <- which(time_labels == input$time)
-    r <- r_slices[[vr]][[selected_idx]]
+    r_stack <- rast_list[[vr]]
+    selected_idx <- match(input$time, names(r_stack))
+    
+    # month not available for this variable: clear the layer instead of crashing
+    if (is.na(selected_idx)) {
+      leafletProxy("map") %>% removeImage("raster")
+      session$sendCustomMessage("showSpinner", FALSE)
+      return()
+    }
+    
+    r <- r_stack[[selected_idx]]
     pal <- get_palette_for_var(vr, rast_list, var_groups, group_palettes, slice_rast = r)
     
     leafletProxy("map") %>%
