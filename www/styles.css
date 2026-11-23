@@ -1,0 +1,282 @@
+/* California Carbon Explorer */
+
+/* ---- font, panels, navbar ---- */
+@font-face {
+  font-family: 'DMSans';
+  src: url('DMSans-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body, input, button, select, textarea {
+  font-family: 'DMSans', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: #333;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: 'DMSans', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+h1 { font-family: 'Tenor Sans', sans-serif; }
+
+.panel-well {
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  font-weight: 300;
+  overflow: hidden;
+  background-color: #f4efe7;
+}
+
+.panel-legend {
+  background-color: rgba(255, 255, 255, 0.0);
+  box-shadow: none;
+  border: none;
+}
+
+.legend-title {
+  font-family: 'DMSans', sans-serif;
+  font-weight: 510;
+  font-size: 16px;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.legend-label {
+  font-family: 'DMSans', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: #333;
+}
+
+.irs-single, .irs-bar, .irs-grid-text {
+  font-size: 10px !important;
+  font-family: 'DMSans', sans-serif;
+}
+
+.ui-resizable-handle.ui-resizable-sw {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  cursor: nesw-resize;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cline x1='2' y1='14' x2='6' y2='18' stroke='rgba(0,0,0,0.3)' stroke-width='1'/%3E%3Cline x1='2' y1='8' x2='12' y2='18' stroke='rgba(0,0,0,0.3)' stroke-width='1'/%3E%3C/svg%3E") no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.navbar, .container-fluid, .tab-content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* navbar background */
+.navbar {
+  background-color: #f3e6d3 !important;
+  border-bottom: 0px solid #c5d68d;
+}
+
+/* navbar title and tabs, resting state */
+.navbar .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+  color: #72654c !important;
+  font-weight: 500;
+}
+
+/* tabs when moused over */
+.navbar-default .navbar-nav > li > a:hover {
+  color: #C29A6D !important;
+}
+
+/* selected tab */
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
+  background-color: #c5d68d !important;
+  color: #9c7854 !important;
+  border-bottom: 2px solid #c5d68d !important;
+}
+
+/* navbar dimensions */
+.navbar {
+  min-height: 40px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.navbar-nav > li > a {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+/* navbar title alignment */
+.navbar .navbar-brand {
+  padding-top: 2px !important;
+  padding-bottom: 8px !important;
+  line-height: 1.2 !important;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* navbar font */
+.navbar .navbar-brand,
+.navbar-nav > li > a {
+  font-family: 'Tenor Sans', sans-serif !important;
+  letter-spacing: 0.3px;
+}
+
+/* ---- loaders / spinner ---- */
+#initial-loader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: white;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lds-dual-ring-initial:after {
+  content: ' ';
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 6px solid #244C20;
+  border-color: #244C20 transparent #244C20 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.disabled-section {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ---- panel line spacing ---- */
+.panel-well, .card, .panel, .card-body, .panel-body {
+  line-height: 1.2;
+}
+
+/* ---- offset for fixed-top navbar on the Export tab ---- */
+#shiny-tab-Export,
+#shiny-tab-Export > .container-fluid {
+  padding-top: 65px !important;
+}
+
+/* ---- info tabs ---- */
+.info-tab {
+  background-color: #f8f1e7;
+  padding: 80px 80px;
+  border-radius: 8px;
+  max-width: 1200px;
+  margin: 20px auto;
+  line-height: 1.6;
+  font-size: 17px;
+  color: #2c2c2c;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+  border: 1px solid #e6d9c7;
+}
+
+.info-tab h2 {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #3b2d1f;
+}
+
+.info-tab h3 {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #3b2d1f;
+}
+
+/* scrollable info tab */
+.info-tab-scroll {
+  background-color: #f8f1e7;
+  padding: 90px 80px 60px 80px;
+  border-radius: 8px;
+  max-width: 1200px;
+  margin: 40px auto;
+  line-height: 1.6;
+  font-size: 17px;
+  color: #2c2c2c;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+  border: 1px solid #e6d9c7;
+  min-height: auto;
+}
+
+.info-tab-scroll h2 {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #3b2d1f;
+}
+
+/* info page tables */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+
+.info-table th {
+  text-align: left;
+  padding: 10px;
+  background-color: #e6d9c7;
+  border-bottom: 2px solid #d4c3af;
+}
+
+.info-table td {
+  padding: 10px;
+  border-bottom: 1px solid #e6d9c7;
+  vertical-align: top;
+}
+
+.info-table tr:hover { background-color: #f3ebe2; }
+
+/* ---- navbar dropdown menu ---- */
+.navbar .dropdown-menu {
+  background-color: #f3e6d3 !important;
+  border: none;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
+}
+
+.navbar .dropdown-menu > li > a {
+  color: #3b2d1f !important;
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.navbar .dropdown-menu > li > a:hover {
+  background-color: #f8f1e7 !important;
+  color: #2a1d12 !important;
+}
+
+.navbar-nav > li > .dropdown-toggle { padding-bottom: 10px; }
+
+.navbar .dropdown-toggle::after { border-top-color: #3b2d1f !important; }
