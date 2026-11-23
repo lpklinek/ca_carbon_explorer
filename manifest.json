@@ -5132,14 +5132,23 @@
     ".RDataTmp": {
       "checksum": "e257fb69e98b9699ed1cff4c101017ad"
     },
-    "all_dendro.pdf.pdf": {
-      "checksum": "ef3fbbcfb74d25de7cc64861423f9d24"
-    },
-    "app.R": {
+    "app_local.R": {
       "checksum": "47aec97268ea6ff7a400edb19537b1f1"
     },
-    "data/processed_data.Rds": {
+    "app_uncertainty_withannotations.R": {
+      "checksum": "f17825d77d0c8578df331e59a4691dc5"
+    },
+    "app_withoutuncertainty.R": {
+      "checksum": "07a82034dabaa35a2917a0e869a71331"
+    },
+    "app.R": {
+      "checksum": "9a6d0a2f53b8511112c5ab64a47aba23"
+    },
+    "data/processed_data_backup.Rds": {
       "checksum": "020ca492ab338388f77d58381ec9051b"
+    },
+    "data/processed_data.Rds": {
+      "checksum": "7c9c5f220d23c5b27ec2405f319c10de"
     },
     "data/processed_rasters/alloc_foliage_gCm2day.tif": {
       "checksum": "aa4f1facde5471b67ba40b8372027133"
@@ -5344,6 +5353,822 @@
     },
     "data/processed_rasters/wue_plant_gCkgH2O.tif": {
       "checksum": "821aac00152e9e283db036b60a9fec04"
+    },
+    "data/unc/50/hi/alloc_foliage_gCm2day.tif": {
+      "checksum": "2eb68f378a7e32c717a3fbdcf55938cb"
+    },
+    "data/unc/50/hi/alloc_labile_gCm2day.tif": {
+      "checksum": "4211709875862239c443b2641b7461c8"
+    },
+    "data/unc/50/hi/alloc_roots_gCm2day.tif": {
+      "checksum": "ef6a4492a85b07223054f432039c8133"
+    },
+    "data/unc/50/hi/alloc_wood_gCm2day.tif": {
+      "checksum": "381a8bf9bade460f7befed81bc0c3593"
+    },
+    "data/unc/50/hi/biomass_gCm2.tif": {
+      "checksum": "0d63fda2cd80a2bbc360ca84e8eb125e"
+    },
+    "data/unc/50/hi/biomass_to_litter_gCm2day.tif": {
+      "checksum": "e89d230d9e81079bf032914b761c5cba"
+    },
+    "data/unc/50/hi/CiCa.tif": {
+      "checksum": "0fe6764e6ab760024d04c27a098df577"
+    },
+    "data/unc/50/hi/Ctotal_gCm2.tif": {
+      "checksum": "fe8663d1615eb33212e4bdd8d1402b01"
+    },
+    "data/unc/50/hi/dCbiomass_gCm2.tif": {
+      "checksum": "3adad522fc1c47e39c68c48b8148f511"
+    },
+    "data/unc/50/hi/dCdom_gCm2.tif": {
+      "checksum": "495a3a34728f5be95ef02d31f244c281"
+    },
+    "data/unc/50/hi/dCfoliage_gCm2.tif": {
+      "checksum": "913ab533345a8edddc5bbc203fac57ad"
+    },
+    "data/unc/50/hi/dClabile_gCm2.tif": {
+      "checksum": "982abd3acb2c25eee56a6b1ade3ee28f"
+    },
+    "data/unc/50/hi/dClitter_gCm2.tif": {
+      "checksum": "440710b1bd8825000dcb2be975486846"
+    },
+    "data/unc/50/hi/dCroots_gCm2.tif": {
+      "checksum": "85d8660f42a600770f5a712d19967702"
+    },
+    "data/unc/50/hi/dCsom_gCm2.tif": {
+      "checksum": "f3887665c78fdc578da4a5addb6ef452"
+    },
+    "data/unc/50/hi/dCwood_gCm2.tif": {
+      "checksum": "79134bdb1e5cfb439d373d3ca7a13465"
+    },
+    "data/unc/50/hi/dom_gCm2.tif": {
+      "checksum": "43dd2cafa1ca453fccdf8082465bca77"
+    },
+    "data/unc/50/hi/dRootDepth_m.tif": {
+      "checksum": "2d5c21c3ced16f2e049c0453bc55dfb9"
+    },
+    "data/unc/50/hi/dSurfWater_kgH2Om2.tif": {
+      "checksum": "902d60780cc43a22b8a08848becb9235"
+    },
+    "data/unc/50/hi/dwSWP_MPa.tif": {
+      "checksum": "195d47eea07672ebc225f5cea023f17e"
+    },
+    "data/unc/50/hi/Esoil_kgH2Om2day.tif": {
+      "checksum": "2b560bf64cd2582e8cda07a6e5c2f996"
+    },
+    "data/unc/50/hi/ET_kgH2Om2day.tif": {
+      "checksum": "8c3c1a1440c1e28ecabfa8e136127c72"
+    },
+    "data/unc/50/hi/Etrans_kgH2Om2day.tif": {
+      "checksum": "8dc584bdae9864e01ffc42ccc3f9a24f"
+    },
+    "data/unc/50/hi/Ewetcanopy_kgH2Om2day.tif": {
+      "checksum": "8bd847c805494397b9bd66e3164a8c7e"
+    },
+    "data/unc/50/hi/fire_gCm2day.tif": {
+      "checksum": "c767e90312b5b6d6df7e056cb60d63e9"
+    },
+    "data/unc/50/hi/FIREemiss_biomass_gCm2day.tif": {
+      "checksum": "209468c9c40674822c61496a5abbb3f8"
+    },
+    "data/unc/50/hi/FIREemiss_dom_gCm2day.tif": {
+      "checksum": "4e94e6853671c80cc2df9f64327a7292"
+    },
+    "data/unc/50/hi/FIREemiss_foliage_gCm2day.tif": {
+      "checksum": "c93f0f458ef368f343f36d942d15fc04"
+    },
+    "data/unc/50/hi/FIREemiss_labile_gCm2day.tif": {
+      "checksum": "52017c91535fafaffaeb30ffce5bf207"
+    },
+    "data/unc/50/hi/FIREemiss_litter_gCm2day.tif": {
+      "checksum": "c198bce4fb7326d99ee2cd9f1292da64"
+    },
+    "data/unc/50/hi/FIREemiss_roots_gCm2day.tif": {
+      "checksum": "d6f4580bd439fef347358ca257e57442"
+    },
+    "data/unc/50/hi/FIREemiss_som_gCm2day.tif": {
+      "checksum": "bfc7b7b73027a8cef4a7752093b0a234"
+    },
+    "data/unc/50/hi/FIREemiss_wood_gCm2day.tif": {
+      "checksum": "58a5bc2629f0ba38a034b8613e06f43b"
+    },
+    "data/unc/50/hi/foliage_gCm2.tif": {
+      "checksum": "762a46916ea9e4d86648c1e52de9e9f4"
+    },
+    "data/unc/50/hi/foliage_to_litter_gCm2day.tif": {
+      "checksum": "81a0c680718ebfbc88cc3121878401a9"
+    },
+    "data/unc/50/hi/gb_mmolH2Om2s.tif": {
+      "checksum": "696c1afd49bf1f691990f05155187d42"
+    },
+    "data/unc/50/hi/gpp_gCm2day.tif": {
+      "checksum": "6be1c6e26ed1020b948d13c33aa9813e"
+    },
+    "data/unc/50/hi/gs_demand_supply_ratio.tif": {
+      "checksum": "0f15ed0fd078904b908b572bd803ceb9"
+    },
+    "data/unc/50/hi/gs_mmolH2Om2s.tif": {
+      "checksum": "6453b30079a55894cc05327a5098900e"
+    },
+    "data/unc/50/hi/harvest_gCm2day.tif": {
+      "checksum": "247c1f0b15ac96cfe3455fea735eceed"
+    },
+    "data/unc/50/hi/HARVESTextracted_biomass_gCm2day.tif": {
+      "checksum": "247c1f0b15ac96cfe3455fea735eceed"
+    },
+    "data/unc/50/hi/HARVESTextracted_foliage_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/50/hi/HARVESTextracted_labile_gCm2day.tif": {
+      "checksum": "36767b224a058965a296d70b5b17a608"
+    },
+    "data/unc/50/hi/HARVESTextracted_litter_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/50/hi/HARVESTextracted_roots_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/50/hi/HARVESTextracted_som_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/50/hi/HARVESTextracted_wood_gCm2day.tif": {
+      "checksum": "7f234fa19c8e04aeca8b05840a4e0507"
+    },
+    "data/unc/50/hi/labile_gCm2.tif": {
+      "checksum": "c3519bca0449ddad55dbdbc596495e3c"
+    },
+    "data/unc/50/hi/labile_to_foliage_gCm2day.tif": {
+      "checksum": "67d4cc9c175cea424d5939364b4148c7"
+    },
+    "data/unc/50/hi/lai_m2m2.tif": {
+      "checksum": "29dc8722bcc698d8344f083e73fdddfb"
+    },
+    "data/unc/50/hi/litter_gCm2.tif": {
+      "checksum": "310d1f0a3546f8aef4ad5f2e071be638"
+    },
+    "data/unc/50/hi/litter_to_som_gCm2day.tif": {
+      "checksum": "988455c7184f012b6dc6652139a387ba"
+    },
+    "data/unc/50/hi/nbe_gCm2day.tif": {
+      "checksum": "28a5c0397c4fd2f933bef1c86fd9e8ef"
+    },
+    "data/unc/50/hi/nbp_gCm2day.tif": {
+      "checksum": "45e1996d2f3b60b6a85dd0a99dc9b75f"
+    },
+    "data/unc/50/hi/nee_gCm2day.tif": {
+      "checksum": "6ea85367f40243f89deb055fd7f9b031"
+    },
+    "data/unc/50/hi/npp_gCm2day.tif": {
+      "checksum": "57e18a3f35e182a9bdea28beab5191f0"
+    },
+    "data/unc/50/hi/rauto_gCm2day.tif": {
+      "checksum": "d0377ab10f07f853bbed40b493a3c08b"
+    },
+    "data/unc/50/hi/reco_gCm2day.tif": {
+      "checksum": "0bc8ee0a7f99c77f03329f9d041b1ed1"
+    },
+    "data/unc/50/hi/rhet_gCm2day.tif": {
+      "checksum": "4f7f4b0d7410dabe97f1e9a165191e8b"
+    },
+    "data/unc/50/hi/roots_to_litter_gCm2day.tif": {
+      "checksum": "597a42e2790129664d1244499d7a6abd"
+    },
+    "data/unc/50/hi/runoff_kgH2Om2day.tif": {
+      "checksum": "3bca2cc16635663ae7f83171fe2c0602"
+    },
+    "data/unc/50/hi/snow_kgH2Om2.tif": {
+      "checksum": "704fbcab0f41b703ea05e9f40d752f76"
+    },
+    "data/unc/50/hi/som_gCm2.tif": {
+      "checksum": "4f7a123000756e15a8bafd1073127ccf"
+    },
+    "data/unc/50/hi/total_drainage_kgH2Om2day.tif": {
+      "checksum": "855fb1fa2390d65119cbda2ff6d2789e"
+    },
+    "data/unc/50/hi/wood_gCm2.tif": {
+      "checksum": "6fb30ab0cf5df02a7830125539049b17"
+    },
+    "data/unc/50/hi/wood_to_litter_gCm2day.tif": {
+      "checksum": "9e0a666f124766a8562715fcd6d79388"
+    },
+    "data/unc/50/hi/wue_eco_gCkgH2O.tif": {
+      "checksum": "b9c9782cf9a6f78503e0c8b5db07f4d5"
+    },
+    "data/unc/50/hi/wue_plant_gCkgH2O.tif": {
+      "checksum": "64867d853185989f884cb1adf6aa11ea"
+    },
+    "data/unc/50/lo/alloc_foliage_gCm2day.tif": {
+      "checksum": "abda821f013fe7b4100e6cab7694736e"
+    },
+    "data/unc/50/lo/alloc_labile_gCm2day.tif": {
+      "checksum": "bc814b5aadcd3120bbb1a63ebb0e119a"
+    },
+    "data/unc/50/lo/alloc_roots_gCm2day.tif": {
+      "checksum": "cc8b260b69d31e44b6e3fe6cef08749c"
+    },
+    "data/unc/50/lo/alloc_wood_gCm2day.tif": {
+      "checksum": "9496ca724a34c1c29072033a02e297c4"
+    },
+    "data/unc/50/lo/biomass_gCm2.tif": {
+      "checksum": "216d42d7f3ed3c1e5857bee9101b020b"
+    },
+    "data/unc/50/lo/biomass_to_litter_gCm2day.tif": {
+      "checksum": "6cc5033ad7b41dfcbf138879c8a389ad"
+    },
+    "data/unc/50/lo/CiCa.tif": {
+      "checksum": "342d6255907af74637d8a8dd7c3e95b8"
+    },
+    "data/unc/50/lo/Ctotal_gCm2.tif": {
+      "checksum": "3d64a69ac0150ec8af3eebea8d4ba116"
+    },
+    "data/unc/50/lo/dCbiomass_gCm2.tif": {
+      "checksum": "78645821c22898c7c183e8373920cd9a"
+    },
+    "data/unc/50/lo/dCdom_gCm2.tif": {
+      "checksum": "0a710967950ce5a33ae36e26cd5b45f4"
+    },
+    "data/unc/50/lo/dCfoliage_gCm2.tif": {
+      "checksum": "45db8a20d032fd8d52691116f8b75759"
+    },
+    "data/unc/50/lo/dClabile_gCm2.tif": {
+      "checksum": "6c95d036c761878afcbe58233c4bd8fc"
+    },
+    "data/unc/50/lo/dClitter_gCm2.tif": {
+      "checksum": "edfbabc8838701ddd129fe5c6ecee38e"
+    },
+    "data/unc/50/lo/dCroots_gCm2.tif": {
+      "checksum": "0c3bd44c4bf54a95f22f1694f5665c8d"
+    },
+    "data/unc/50/lo/dCsom_gCm2.tif": {
+      "checksum": "892f272909dacfa15f5fe7d26b9b08c1"
+    },
+    "data/unc/50/lo/dCwood_gCm2.tif": {
+      "checksum": "b460a9b629a260aba3a13d3c241b8ca3"
+    },
+    "data/unc/50/lo/dom_gCm2.tif": {
+      "checksum": "73c1eae904b509bfa7aa0ab6c8898526"
+    },
+    "data/unc/50/lo/dRootDepth_m.tif": {
+      "checksum": "4378231e7d820696d3cc27f774e6ae87"
+    },
+    "data/unc/50/lo/dSurfWater_kgH2Om2.tif": {
+      "checksum": "a6ef4c6ba2f46f4ad30a021becc6d7dc"
+    },
+    "data/unc/50/lo/dwSWP_MPa.tif": {
+      "checksum": "a58b0946b644cd867fc0f7bf01ce1fe7"
+    },
+    "data/unc/50/lo/Esoil_kgH2Om2day.tif": {
+      "checksum": "b8cfdd3ae0b9a733fa32ef6fa679fbe2"
+    },
+    "data/unc/50/lo/ET_kgH2Om2day.tif": {
+      "checksum": "466bab630468de5e2f9df13a9d7addc8"
+    },
+    "data/unc/50/lo/Etrans_kgH2Om2day.tif": {
+      "checksum": "2eeda46ff055bfc4d4d3c3cd396b7e6d"
+    },
+    "data/unc/50/lo/Ewetcanopy_kgH2Om2day.tif": {
+      "checksum": "7245f4d94152321bcba4a6d3c0dbcb9e"
+    },
+    "data/unc/50/lo/fire_gCm2day.tif": {
+      "checksum": "9266eb65622e1660e0740fe02a3a73f4"
+    },
+    "data/unc/50/lo/FIREemiss_biomass_gCm2day.tif": {
+      "checksum": "3b92c1309ae71f0ecc3cfb5ec818c3fb"
+    },
+    "data/unc/50/lo/FIREemiss_dom_gCm2day.tif": {
+      "checksum": "07f78c0a3021763ad15cb20d899b27f8"
+    },
+    "data/unc/50/lo/FIREemiss_foliage_gCm2day.tif": {
+      "checksum": "2ee2cb6047aac0a72b4fae42028fee87"
+    },
+    "data/unc/50/lo/FIREemiss_labile_gCm2day.tif": {
+      "checksum": "d5bc29b1487c4b862e2f34c7aecd7565"
+    },
+    "data/unc/50/lo/FIREemiss_litter_gCm2day.tif": {
+      "checksum": "46e4891811be3a4ad632076ee33efd86"
+    },
+    "data/unc/50/lo/FIREemiss_roots_gCm2day.tif": {
+      "checksum": "dee9d52c90cb09ae5bad012f4d17d066"
+    },
+    "data/unc/50/lo/FIREemiss_som_gCm2day.tif": {
+      "checksum": "cdd12cabc4f134aec2dc5eee635484a3"
+    },
+    "data/unc/50/lo/FIREemiss_wood_gCm2day.tif": {
+      "checksum": "d572a0c6d6ab3d9e47157d1abd7cd610"
+    },
+    "data/unc/50/lo/foliage_gCm2.tif": {
+      "checksum": "719f55d8f1844159e2f78c7b97f9d95e"
+    },
+    "data/unc/50/lo/foliage_to_litter_gCm2day.tif": {
+      "checksum": "a60548bc8c79f14d7755cdfc3d8077ec"
+    },
+    "data/unc/50/lo/gb_mmolH2Om2s.tif": {
+      "checksum": "be3b9abed79246bec49eb85c1122b6d9"
+    },
+    "data/unc/50/lo/gpp_gCm2day.tif": {
+      "checksum": "513615e7f6ead3298fe9ad5e5111e3df"
+    },
+    "data/unc/50/lo/gs_demand_supply_ratio.tif": {
+      "checksum": "552f21f7b811a7e2fe964e984cee17c4"
+    },
+    "data/unc/50/lo/gs_mmolH2Om2s.tif": {
+      "checksum": "b1fad2a80f971155ca76d1d95ee1dab5"
+    },
+    "data/unc/50/lo/harvest_gCm2day.tif": {
+      "checksum": "e62b5008569d5d866c6f5724056024c6"
+    },
+    "data/unc/50/lo/HARVESTextracted_biomass_gCm2day.tif": {
+      "checksum": "e62b5008569d5d866c6f5724056024c6"
+    },
+    "data/unc/50/lo/HARVESTextracted_foliage_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/50/lo/HARVESTextracted_labile_gCm2day.tif": {
+      "checksum": "8f2428ee2ebd9c6f2129685edc069cfe"
+    },
+    "data/unc/50/lo/HARVESTextracted_litter_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/50/lo/HARVESTextracted_roots_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/50/lo/HARVESTextracted_som_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/50/lo/HARVESTextracted_wood_gCm2day.tif": {
+      "checksum": "402684eb919c6c436b21c807e05ca2ef"
+    },
+    "data/unc/50/lo/labile_gCm2.tif": {
+      "checksum": "ec1fbb800c5a384173c51b3126cdefb0"
+    },
+    "data/unc/50/lo/labile_to_foliage_gCm2day.tif": {
+      "checksum": "d14a0320476f8a4d19ceb46abb2f32e0"
+    },
+    "data/unc/50/lo/lai_m2m2.tif": {
+      "checksum": "ab69c10e27fc1fe8f8c671ab982711b6"
+    },
+    "data/unc/50/lo/litter_gCm2.tif": {
+      "checksum": "8d676dc8c55982ad5be0b85b8375e6be"
+    },
+    "data/unc/50/lo/litter_to_som_gCm2day.tif": {
+      "checksum": "9946620ab24a1213525b5c20ecd114e0"
+    },
+    "data/unc/50/lo/nbe_gCm2day.tif": {
+      "checksum": "ae6842abb6ef3f043a46e578002a6418"
+    },
+    "data/unc/50/lo/nbp_gCm2day.tif": {
+      "checksum": "d8d76d0c796a482bb8bb610e54402dc0"
+    },
+    "data/unc/50/lo/nee_gCm2day.tif": {
+      "checksum": "9e8f01d68094e5dd7f1499aadb171c29"
+    },
+    "data/unc/50/lo/npp_gCm2day.tif": {
+      "checksum": "f3bc1eb22b73c251281ba8908c70c086"
+    },
+    "data/unc/50/lo/rauto_gCm2day.tif": {
+      "checksum": "d3b22416d2f982fa1828ab86cb5874f0"
+    },
+    "data/unc/50/lo/reco_gCm2day.tif": {
+      "checksum": "056fd05bab71af253d971305ae74e9bf"
+    },
+    "data/unc/50/lo/rhet_gCm2day.tif": {
+      "checksum": "56a8c9f5f45b1bc438818d42faed5953"
+    },
+    "data/unc/50/lo/roots_to_litter_gCm2day.tif": {
+      "checksum": "02f1bdb6ea6689074ae4b55bb227b8ba"
+    },
+    "data/unc/50/lo/runoff_kgH2Om2day.tif": {
+      "checksum": "86012319dfbe78da940d715fcb4882b1"
+    },
+    "data/unc/50/lo/snow_kgH2Om2.tif": {
+      "checksum": "ab68875cca1fd8c1e5d31ff59553066a"
+    },
+    "data/unc/50/lo/som_gCm2.tif": {
+      "checksum": "90235b36fe2a4032422de7883da5ea03"
+    },
+    "data/unc/50/lo/total_drainage_kgH2Om2day.tif": {
+      "checksum": "86412a7def9b0a39498d7728dd9ddf80"
+    },
+    "data/unc/50/lo/wood_gCm2.tif": {
+      "checksum": "c00263c0fdea334755a07d58f1f20c4a"
+    },
+    "data/unc/50/lo/wood_to_litter_gCm2day.tif": {
+      "checksum": "cbc563e005bed922ea2f1bce8f889390"
+    },
+    "data/unc/50/lo/wue_eco_gCkgH2O.tif": {
+      "checksum": "0c7beaa56dbdcaf686f869e52abf88bb"
+    },
+    "data/unc/50/lo/wue_plant_gCkgH2O.tif": {
+      "checksum": "bb8451138b49af77cdaf393f98ea4bc8"
+    },
+    "data/unc/90/hi/alloc_foliage_gCm2day.tif": {
+      "checksum": "c8633f4ad49fbb8383a8c1b0ab87cf36"
+    },
+    "data/unc/90/hi/alloc_labile_gCm2day.tif": {
+      "checksum": "b5f47b36c51c8abb38c22afd5c751aeb"
+    },
+    "data/unc/90/hi/alloc_roots_gCm2day.tif": {
+      "checksum": "40a663abe6e1b8d3599b2cef0fc23273"
+    },
+    "data/unc/90/hi/alloc_wood_gCm2day.tif": {
+      "checksum": "3167e02fe04edd5299d80d6ae0a54c37"
+    },
+    "data/unc/90/hi/biomass_gCm2.tif": {
+      "checksum": "2f9881c880931a708f334436dd3c17e8"
+    },
+    "data/unc/90/hi/biomass_to_litter_gCm2day.tif": {
+      "checksum": "7a7b00b5bfe5954ec14505a27776f51b"
+    },
+    "data/unc/90/hi/CiCa.tif": {
+      "checksum": "89c14a96f118d753cc44dabd9af99948"
+    },
+    "data/unc/90/hi/Ctotal_gCm2.tif": {
+      "checksum": "6b5ee6ab3d21b601baeba7c053f90598"
+    },
+    "data/unc/90/hi/dCbiomass_gCm2.tif": {
+      "checksum": "84b122f0b1bb29be5468e9eb174517ba"
+    },
+    "data/unc/90/hi/dCdom_gCm2.tif": {
+      "checksum": "19b4d1652408bd3ed9bd311bdd5c83d5"
+    },
+    "data/unc/90/hi/dCfoliage_gCm2.tif": {
+      "checksum": "e1c8d2aa58c4fbe9033bafaf5b2a80fd"
+    },
+    "data/unc/90/hi/dClabile_gCm2.tif": {
+      "checksum": "9e4fc873d2aca8726ef45cca87bc0d8a"
+    },
+    "data/unc/90/hi/dClitter_gCm2.tif": {
+      "checksum": "c224546e7f4be075c27c9db7564f17bc"
+    },
+    "data/unc/90/hi/dCroots_gCm2.tif": {
+      "checksum": "791a0826fa4d4265c143fac7e9119e4d"
+    },
+    "data/unc/90/hi/dCsom_gCm2.tif": {
+      "checksum": "13654da951295bb8bcc3900cf321401c"
+    },
+    "data/unc/90/hi/dCwood_gCm2.tif": {
+      "checksum": "8daf94300d24770763287e85b8b05aec"
+    },
+    "data/unc/90/hi/dom_gCm2.tif": {
+      "checksum": "0937eeb39f382927f89c5d78857beb26"
+    },
+    "data/unc/90/hi/dRootDepth_m.tif": {
+      "checksum": "15e08ad3736e697ab98bce3cb2f3f168"
+    },
+    "data/unc/90/hi/dSurfWater_kgH2Om2.tif": {
+      "checksum": "12d0ca2e317e49e8c8cde5fa0a2671cb"
+    },
+    "data/unc/90/hi/dwSWP_MPa.tif": {
+      "checksum": "67d574a3f737424b8c09a7beefa9e353"
+    },
+    "data/unc/90/hi/Esoil_kgH2Om2day.tif": {
+      "checksum": "d10127729d5e7c1fe40fb836fb7474c6"
+    },
+    "data/unc/90/hi/ET_kgH2Om2day.tif": {
+      "checksum": "c12986f11402600d5b66b47f334880bd"
+    },
+    "data/unc/90/hi/Etrans_kgH2Om2day.tif": {
+      "checksum": "52474f9be65b126f5c579f9c2df7530e"
+    },
+    "data/unc/90/hi/Ewetcanopy_kgH2Om2day.tif": {
+      "checksum": "4003ebb8500d578411b1dad3c3f2b6b9"
+    },
+    "data/unc/90/hi/fire_gCm2day.tif": {
+      "checksum": "51ae6c76bed0a765e7fd66e08b5e3f9e"
+    },
+    "data/unc/90/hi/FIREemiss_biomass_gCm2day.tif": {
+      "checksum": "653d7cdcdfaba3cc78ef65a781465020"
+    },
+    "data/unc/90/hi/FIREemiss_dom_gCm2day.tif": {
+      "checksum": "82c382a41fb39b23f54f4f67553728da"
+    },
+    "data/unc/90/hi/FIREemiss_foliage_gCm2day.tif": {
+      "checksum": "b4e484ddff3c1650d02b3d550ad8c4b6"
+    },
+    "data/unc/90/hi/FIREemiss_labile_gCm2day.tif": {
+      "checksum": "b7c5b2e13e1f3aab8b4bde94653f522f"
+    },
+    "data/unc/90/hi/FIREemiss_litter_gCm2day.tif": {
+      "checksum": "0a3a6e868cd9af8fa6422170754e117c"
+    },
+    "data/unc/90/hi/FIREemiss_roots_gCm2day.tif": {
+      "checksum": "834483ed6976452c59d59832a15e49b2"
+    },
+    "data/unc/90/hi/FIREemiss_som_gCm2day.tif": {
+      "checksum": "53e08f3d697dcb142660384960057452"
+    },
+    "data/unc/90/hi/FIREemiss_wood_gCm2day.tif": {
+      "checksum": "3aeff2668591464eb8551dea4aa2f2b6"
+    },
+    "data/unc/90/hi/foliage_gCm2.tif": {
+      "checksum": "5c70719f0b7356567dfa99395328159a"
+    },
+    "data/unc/90/hi/foliage_to_litter_gCm2day.tif": {
+      "checksum": "05ce95a121c58cc3581eeaffac3bfa8c"
+    },
+    "data/unc/90/hi/gb_mmolH2Om2s.tif": {
+      "checksum": "1958cdf5bed1de9c7ec4f18a7263391b"
+    },
+    "data/unc/90/hi/gpp_gCm2day.tif": {
+      "checksum": "6f06da0771229dc40299a4c766ceb264"
+    },
+    "data/unc/90/hi/gs_demand_supply_ratio.tif": {
+      "checksum": "2b2dc538d18d78aac03bbcbc79aa01e3"
+    },
+    "data/unc/90/hi/gs_mmolH2Om2s.tif": {
+      "checksum": "d09786158fe93b646f117d458d4bd141"
+    },
+    "data/unc/90/hi/harvest_gCm2day.tif": {
+      "checksum": "3531c10b2c16f7a133ffedcdfd54fe66"
+    },
+    "data/unc/90/hi/HARVESTextracted_biomass_gCm2day.tif": {
+      "checksum": "3531c10b2c16f7a133ffedcdfd54fe66"
+    },
+    "data/unc/90/hi/HARVESTextracted_foliage_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/90/hi/HARVESTextracted_labile_gCm2day.tif": {
+      "checksum": "2b34a55b94f87cfc967545d65e84bd06"
+    },
+    "data/unc/90/hi/HARVESTextracted_litter_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/90/hi/HARVESTextracted_roots_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/90/hi/HARVESTextracted_som_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/90/hi/HARVESTextracted_wood_gCm2day.tif": {
+      "checksum": "6f12404aec0d0150d77f2408344b4f31"
+    },
+    "data/unc/90/hi/labile_gCm2.tif": {
+      "checksum": "b9ac22abfbe6021753b9bc7ab902d6f5"
+    },
+    "data/unc/90/hi/labile_to_foliage_gCm2day.tif": {
+      "checksum": "7e878845bad8e73c1f46514c7a4b2cec"
+    },
+    "data/unc/90/hi/lai_m2m2.tif": {
+      "checksum": "18cb775fd0bc0f84200bb862396734fa"
+    },
+    "data/unc/90/hi/litter_gCm2.tif": {
+      "checksum": "246a318d785826db771e70cf90ead7c6"
+    },
+    "data/unc/90/hi/litter_to_som_gCm2day.tif": {
+      "checksum": "ecf99212201061268ce4d5c8664725f2"
+    },
+    "data/unc/90/hi/nbe_gCm2day.tif": {
+      "checksum": "f0395d9e0e22d9ffd0a15223f020b940"
+    },
+    "data/unc/90/hi/nbp_gCm2day.tif": {
+      "checksum": "dc699276e1b74b9b9974005dda353f3d"
+    },
+    "data/unc/90/hi/nee_gCm2day.tif": {
+      "checksum": "af3c45dd70619efc50e443f15fa6beee"
+    },
+    "data/unc/90/hi/npp_gCm2day.tif": {
+      "checksum": "0997bbfc3a0f3a1f15893ae1ba153b0b"
+    },
+    "data/unc/90/hi/rauto_gCm2day.tif": {
+      "checksum": "55879258d6c964ce22e5c78886ca29dd"
+    },
+    "data/unc/90/hi/reco_gCm2day.tif": {
+      "checksum": "7e1cb3348a0ab34a36692cb85a7e2808"
+    },
+    "data/unc/90/hi/rhet_gCm2day.tif": {
+      "checksum": "3bb33eb2974767e512eed16e2e80ff87"
+    },
+    "data/unc/90/hi/roots_to_litter_gCm2day.tif": {
+      "checksum": "435312c2ae187aff9db93f7e2fcc7383"
+    },
+    "data/unc/90/hi/runoff_kgH2Om2day.tif": {
+      "checksum": "9ccd5f373e9d58f713a0597a51bdb700"
+    },
+    "data/unc/90/hi/snow_kgH2Om2.tif": {
+      "checksum": "d87adb913daf59ca14013a2732ca8397"
+    },
+    "data/unc/90/hi/som_gCm2.tif": {
+      "checksum": "703bff40ea3987a5a45702f4af94ba20"
+    },
+    "data/unc/90/hi/total_drainage_kgH2Om2day.tif": {
+      "checksum": "6066d7b9d08f955d113538bf184caaa3"
+    },
+    "data/unc/90/hi/wood_gCm2.tif": {
+      "checksum": "aac8b889eac22be1e47fefb6d1d5c332"
+    },
+    "data/unc/90/hi/wood_to_litter_gCm2day.tif": {
+      "checksum": "7063d7c616dad3ab454081040d768427"
+    },
+    "data/unc/90/hi/wue_eco_gCkgH2O.tif": {
+      "checksum": "dd3a3c4949532352691e806154450ef2"
+    },
+    "data/unc/90/hi/wue_plant_gCkgH2O.tif": {
+      "checksum": "2915aa801b79586a7b17946c0b3c40e2"
+    },
+    "data/unc/90/lo/alloc_foliage_gCm2day.tif": {
+      "checksum": "4736794b12d09d94fbbc6cea54cfd8ac"
+    },
+    "data/unc/90/lo/alloc_labile_gCm2day.tif": {
+      "checksum": "1b6733708ff4f3104ff30ec2796fd61d"
+    },
+    "data/unc/90/lo/alloc_roots_gCm2day.tif": {
+      "checksum": "44fb67324134ed3ebd131352c5b34921"
+    },
+    "data/unc/90/lo/alloc_wood_gCm2day.tif": {
+      "checksum": "cb9e6854feb9e9dda03bc90d9a82c621"
+    },
+    "data/unc/90/lo/biomass_gCm2.tif": {
+      "checksum": "1caa70bbbfe21a5388cea0dbe2092985"
+    },
+    "data/unc/90/lo/biomass_to_litter_gCm2day.tif": {
+      "checksum": "c82299aab5133326af02fafd21374c8c"
+    },
+    "data/unc/90/lo/CiCa.tif": {
+      "checksum": "2579e4b863e7796ff3a1eb08de82aa8e"
+    },
+    "data/unc/90/lo/Ctotal_gCm2.tif": {
+      "checksum": "a5829ba18d1cd539a8168300a96ffe82"
+    },
+    "data/unc/90/lo/dCbiomass_gCm2.tif": {
+      "checksum": "32d6b7db23998f102eb6c0cac2cd63e1"
+    },
+    "data/unc/90/lo/dCdom_gCm2.tif": {
+      "checksum": "1e34c7e437f9a8c9caecd3b501a29404"
+    },
+    "data/unc/90/lo/dCfoliage_gCm2.tif": {
+      "checksum": "85b08da0748967af021a66d89d5843d9"
+    },
+    "data/unc/90/lo/dClabile_gCm2.tif": {
+      "checksum": "9a2db4d543369acc3b4d899028168fdf"
+    },
+    "data/unc/90/lo/dClitter_gCm2.tif": {
+      "checksum": "cc42e8dddd260ed2d65ab77fb7ef0819"
+    },
+    "data/unc/90/lo/dCroots_gCm2.tif": {
+      "checksum": "f6cc76409ba037e4718e1518f41b3d49"
+    },
+    "data/unc/90/lo/dCsom_gCm2.tif": {
+      "checksum": "01913d488fd10dc9ce753ddffe1e2a3b"
+    },
+    "data/unc/90/lo/dCwood_gCm2.tif": {
+      "checksum": "0c690fdb800d4da770888c132a086a60"
+    },
+    "data/unc/90/lo/dom_gCm2.tif": {
+      "checksum": "64ce14621f8e5c2b66b256d01acb6a54"
+    },
+    "data/unc/90/lo/dRootDepth_m.tif": {
+      "checksum": "85fe16d687210f222b4c2c506536ee91"
+    },
+    "data/unc/90/lo/dSurfWater_kgH2Om2.tif": {
+      "checksum": "351237333f349374b0e154a20d1ddc8d"
+    },
+    "data/unc/90/lo/dwSWP_MPa.tif": {
+      "checksum": "f3c5ac0d9676742ae8f49af2cf3dec9f"
+    },
+    "data/unc/90/lo/Esoil_kgH2Om2day.tif": {
+      "checksum": "b6c45d8a87ab26bacf919028cf6ecb5c"
+    },
+    "data/unc/90/lo/ET_kgH2Om2day.tif": {
+      "checksum": "5909b488d0f53a372c2c9ce99a0f1535"
+    },
+    "data/unc/90/lo/Etrans_kgH2Om2day.tif": {
+      "checksum": "a09f16b7b95d4bb158f6f300e9bbc410"
+    },
+    "data/unc/90/lo/Ewetcanopy_kgH2Om2day.tif": {
+      "checksum": "805d3d32985e496e056d35b0b5a03d8e"
+    },
+    "data/unc/90/lo/fire_gCm2day.tif": {
+      "checksum": "5f7c7ad51f9df302c0a574fbda22c3fb"
+    },
+    "data/unc/90/lo/FIREemiss_biomass_gCm2day.tif": {
+      "checksum": "3c92244079e885cab0176d8b4dbecd9a"
+    },
+    "data/unc/90/lo/FIREemiss_dom_gCm2day.tif": {
+      "checksum": "355b8e9301d423ac2240bd9d96890091"
+    },
+    "data/unc/90/lo/FIREemiss_foliage_gCm2day.tif": {
+      "checksum": "bec680b794360d2de279f71e5f60d22c"
+    },
+    "data/unc/90/lo/FIREemiss_labile_gCm2day.tif": {
+      "checksum": "544014b216ca03f5910d7a6445a288c1"
+    },
+    "data/unc/90/lo/FIREemiss_litter_gCm2day.tif": {
+      "checksum": "4814aefe3f865aa3e2257c5955744a4d"
+    },
+    "data/unc/90/lo/FIREemiss_roots_gCm2day.tif": {
+      "checksum": "cee60b936e98df0411a7fab04c39c4c2"
+    },
+    "data/unc/90/lo/FIREemiss_som_gCm2day.tif": {
+      "checksum": "26ae142cb4638983b8467ec5a44e9300"
+    },
+    "data/unc/90/lo/FIREemiss_wood_gCm2day.tif": {
+      "checksum": "b343cc67bd4a2d3dc8bb76fbe66dcf6a"
+    },
+    "data/unc/90/lo/foliage_gCm2.tif": {
+      "checksum": "361e59c4c2bb0aa89c55c59a73fcbbd8"
+    },
+    "data/unc/90/lo/foliage_to_litter_gCm2day.tif": {
+      "checksum": "a4cce6c878a8cdf85a994b3f3d06d440"
+    },
+    "data/unc/90/lo/gb_mmolH2Om2s.tif": {
+      "checksum": "2f8352cb265cda709a7f0b9e5e676d98"
+    },
+    "data/unc/90/lo/gpp_gCm2day.tif": {
+      "checksum": "764d5e601b68c163a079ed60c5ec18ac"
+    },
+    "data/unc/90/lo/gs_demand_supply_ratio.tif": {
+      "checksum": "a1ec8ad9df576c9ed539e9403a8fbe3b"
+    },
+    "data/unc/90/lo/gs_mmolH2Om2s.tif": {
+      "checksum": "2a14dc3bc523cb9a226776adc6957055"
+    },
+    "data/unc/90/lo/harvest_gCm2day.tif": {
+      "checksum": "dcbdc4755a3ede9e6c845ed96b07c982"
+    },
+    "data/unc/90/lo/HARVESTextracted_biomass_gCm2day.tif": {
+      "checksum": "dcbdc4755a3ede9e6c845ed96b07c982"
+    },
+    "data/unc/90/lo/HARVESTextracted_foliage_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/90/lo/HARVESTextracted_labile_gCm2day.tif": {
+      "checksum": "1b759897115ae2dad4f5637b27fce777"
+    },
+    "data/unc/90/lo/HARVESTextracted_litter_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/90/lo/HARVESTextracted_roots_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/90/lo/HARVESTextracted_som_gCm2day.tif": {
+      "checksum": "4b28fd66007ca5db25484dbc7a7dee7e"
+    },
+    "data/unc/90/lo/HARVESTextracted_wood_gCm2day.tif": {
+      "checksum": "0f5a5af174642376bb9163f28a5705ec"
+    },
+    "data/unc/90/lo/labile_gCm2.tif": {
+      "checksum": "72908b0c4416e38100c64f5ac5988a06"
+    },
+    "data/unc/90/lo/labile_to_foliage_gCm2day.tif": {
+      "checksum": "92bb7b294be37cb53d84c5e3ac66e591"
+    },
+    "data/unc/90/lo/lai_m2m2.tif": {
+      "checksum": "047708a4063d5919e90d27b35628d29d"
+    },
+    "data/unc/90/lo/litter_gCm2.tif": {
+      "checksum": "fd7d39119c610eed98c14aaf33059e10"
+    },
+    "data/unc/90/lo/litter_to_som_gCm2day.tif": {
+      "checksum": "d2010a34c49db6746ff22d879e68ddfd"
+    },
+    "data/unc/90/lo/nbe_gCm2day.tif": {
+      "checksum": "2ea1f2f883fd8ecef6dabddcd08791c0"
+    },
+    "data/unc/90/lo/nbp_gCm2day.tif": {
+      "checksum": "26a8f6ec9a10ab168616e888dbf36fc0"
+    },
+    "data/unc/90/lo/nee_gCm2day.tif": {
+      "checksum": "c4a24ae75922ffe16c26317cb9adf678"
+    },
+    "data/unc/90/lo/npp_gCm2day.tif": {
+      "checksum": "19941274265a763ea0ca6bba287991ef"
+    },
+    "data/unc/90/lo/rauto_gCm2day.tif": {
+      "checksum": "3bc55d39a1b34e2eb1f740feccc1e378"
+    },
+    "data/unc/90/lo/reco_gCm2day.tif": {
+      "checksum": "723d57b3ad5e90fc32976af78bb8581b"
+    },
+    "data/unc/90/lo/rhet_gCm2day.tif": {
+      "checksum": "b31cc466efe1b3363d7a5117d1c2774e"
+    },
+    "data/unc/90/lo/roots_to_litter_gCm2day.tif": {
+      "checksum": "da59979c3c9582125075f2ab6f7d7c45"
+    },
+    "data/unc/90/lo/runoff_kgH2Om2day.tif": {
+      "checksum": "75f2ae8b92125896fbe6987ec90da89e"
+    },
+    "data/unc/90/lo/snow_kgH2Om2.tif": {
+      "checksum": "146783c0d58ba04722815208d9185ddb"
+    },
+    "data/unc/90/lo/som_gCm2.tif": {
+      "checksum": "c1f39ebb983763a92bf703ff25ba064e"
+    },
+    "data/unc/90/lo/total_drainage_kgH2Om2day.tif": {
+      "checksum": "5c12ff792c8606a7513dda40acd2698b"
+    },
+    "data/unc/90/lo/wood_gCm2.tif": {
+      "checksum": "53e975c01cca30fd759bee20e364de5e"
+    },
+    "data/unc/90/lo/wood_to_litter_gCm2day.tif": {
+      "checksum": "512c2d4a80e3cf775fb069f32d07b135"
+    },
+    "data/unc/90/lo/wue_eco_gCkgH2O.tif": {
+      "checksum": "8d643e37f17498fa267154f131a03d63"
+    },
+    "data/unc/90/lo/wue_plant_gCkgH2O.tif": {
+      "checksum": "4efed0c66d8040156cf1e153622aa5cb"
     },
     "fonts/DM_Sans/DMSans-Black.ttf": {
       "checksum": "e54a07f508b4110c6d3ac51e3431114a"
@@ -5615,12 +6440,6 @@
     "global.R": {
       "checksum": "5667530d9c17f19353d6832d26588be5"
     },
-    "NAU_dendro_HR.pdf": {
-      "checksum": "f29cf34a076f14172412df27422a148a"
-    },
-    "NAU_dendro.pdf": {
-      "checksum": "514434bc6f4153df3246ab62c358543c"
-    },
     "new_app.R": {
       "checksum": "4eaa35b5c97c74a20e11995ad15bb281"
     },
@@ -5639,41 +6458,17 @@
     "old_bad_test/test_old_styles.css": {
       "checksum": "2f43f70f50d5e5c5e9d86835fca3d776"
     },
-    "output6.png": {
-      "checksum": "914fa72143d5d3e214de68370e4918e9"
-    },
-    "output7.png": {
-      "checksum": "afdadd182c3112827ffbf6937f3cf6df"
-    },
-    "phase_plot_BigRiverA.pdf": {
-      "checksum": "a4f3720d051d402c8f33dec78947a1d0"
-    },
-    "phase_plot_BigRiverB.pdf": {
-      "checksum": "a85306b35bf3a80fb7841d02a4f2cd26"
-    },
-    "phase_plot_BigRiverC.pdf": {
-      "checksum": "b98887dc7c5f01413873711fa87325cc"
-    },
-    "phase_plot_BigRiverD.pdf": {
-      "checksum": "d6b308de8d3ed24135e65663a253d290"
-    },
-    "phase_plot_GarciaE.pdf": {
-      "checksum": "1a4c1925310ea89ed8a43e6f652cbb12"
-    },
-    "phase_plot_GarciaF.pdf": {
-      "checksum": "154f530994a13da04eb99d3e816d0b68"
-    },
-    "phase_plot_GarciaG.pdf": {
-      "checksum": "87cec90019469a3bb5aef7faf0ac4e27"
-    },
-    "phase_plot_GarciaH.pdf": {
-      "checksum": "54ff62f0b264610d020a70cd089a5c6c"
-    },
     "R/get_palette_for_var.R": {
       "checksum": "bc1509c500e3c5dc4efb5c68a0635836"
     },
+    "R/info_pages.R": {
+      "checksum": "19333c720e2410a96c63f1a08439a4dd"
+    },
     "R/prep_data.R": {
       "checksum": "bfa8fc899bc7b5fc907f0204dd155b46"
+    },
+    "R/preprocess_uncertainty.R": {
+      "checksum": "3945f5aa9788125b098ca904d4ab1d13"
     },
     "R/var_groups_and_palettes.R": {
       "checksum": "6876fb1a3e1897972c0cfb41800de596"
@@ -5698,6 +6493,9 @@
     },
     "www/PlayfairDisplay.ttf": {
       "checksum": "05fb71dda96f8396e5639225b0d1c036"
+    },
+    "www/styles.css": {
+      "checksum": "9b33ef0e56b619c7c4e258621e0b6183"
     }
   },
   "users": null
